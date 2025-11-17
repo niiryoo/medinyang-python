@@ -10,6 +10,7 @@ router = APIRouter()
 # 요청 바디(Request Body) 모델 정의
 class QuestionRequest(BaseModel):
     question: str
+    history: list[tuple[str, str]]
 
 # 응답 바디(Response Body) 모델 정의
 class AnswerResponse(BaseModel):
@@ -21,6 +22,6 @@ def ask_question(request: QuestionRequest):
     사용자 질문을 받아 RAG 서비스에 전달하고 답변을 반환합니다.
     """
     # 모든 복잡한 로직은 get_answer 함수에 위임합니다.
-    final_answer = get_answer(request.question)
+    final_answer = get_answer(request.history, request.question)
     
     return AnswerResponse(answer=final_answer)

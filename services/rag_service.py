@@ -61,18 +61,48 @@ except Exception as e:
     fallback_llm = None
 
 
-def get_answer(user_question: str) -> str:
-    """질문 → 검색+Rerank → RAG 응답 → 폴백"""
+def get_answer(history: list[tuple[str, str]], current_question: str) -> str:
+    """
+    history: [(question, answer), ...]  최대 10개
+    current_question: 지금 사용자가 입력한 질문
+    """
+
     if not rag_chain or not fallback_llm:
         return "오류: RAG 서비스가 올바르게 초기화되지 않았습니다. 관리자에게 문의하세요."
 
-    rag_response = rag_chain.invoke(user_question)
+    # 1️⃣ 프롬프트 메시지 구성
+    messages = []
 
-    if any(keyword in rag_response.strip() for keyword in config.FALLBACK_KEYWORDS):
-        print("⚠️ 문서에 답변이 없어 일반 GPT 모델(폴백)을 호출합니다...")
-        fallback_response = fallback_llm.invoke(user_question)
-        final_answer = fallback_response.content
+    # 이전 Q/A를 conversation history 메시지로 넣기
+    for q, a in history:
+        messages.append({"role": "user", "content": q})
+        messages.append({"role": "assistant", "content": a})
+
+    # 현재 질문은 마지막 user 메시지에 배치
+    messages.append({"role": "user", "content": current_question})
+
+    # 2️⃣ RAG 호출 (current_question를 반영한 질문 메시지 전달)
+    rag_response = rag_chain.invoke(current_question)
+
+    # rag_chain.invoke() 결과 타입이 문자열일 수도, 객체일 수도 있으므로 정리
+    if hasattr(rag_response, "content"):
+        rag_text = rag_response.content
     else:
-        final_answer = rag_response
+        rag_text = str(rag_response)
+
+    # 3️⃣ RAG 문서에서 답변이 없는 경우 → fallback LLM 호출
+    if any(keyword in rag_text.strip() for keyword in config.FALLBACK_KEYWORDS):
+        print("⚠️ 문서에 답변이 없어 일반 GPT 모델(폴백)을 호출합니다...")
+
+        fallback_response = fallback_llm.invoke(messages)
+
+        final_answer = (
+            fallback_response.content
+            if hasattr(fallback_response, "content")
+            else str(fallback_response)
+        )
+    else:
+        final_answer = rag_text
 
     return final_answer
+
