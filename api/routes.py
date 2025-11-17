@@ -44,23 +44,17 @@ def ask_question(request: QuestionRequest):
     
     return AnswerResponse(answer=final_answer)
 
+class ImageUrlRequest(BaseModel):
+    imageUrl: str
+
 @router.post("/image", response_model=AnswerResponse)
-async def summarize_image_route(
-    file: UploadFile = File(..., description="처방전, 건강검진 결과지 등 의료 기록 이미지"),
-):
+async def summarize_image_route(request: ImageUrlRequest):
     """
     [멀티모달 기능] 업로드된 의료 이미지(처방전, 결과지)를 LLM이 분석하고 요약합니다.
     """
-    if not file.content_type.startswith('image/'):
-        raise HTTPException(status_code=400, detail="Only image files are allowed.")
-    
-    # 1. 이미지 파일을 Base64로 인코딩
-    base64_image = encode_file_to_base64(file)
-    
-    # 2. 서비스 로직 호출
+    # 1. 서비스 로직 호출
     try:
-        # services/image_analysis_service에서 임포트한 함수를 호출
-        summary_answer = summarize_medical_image(base64_image)
+        summary_answer = summarize_medical_image(request.imageUrl)
         return AnswerResponse(answer=summary_answer)
     except Exception as e:
         # LLM 호출 실패 등 서비스 내부 오류 처리

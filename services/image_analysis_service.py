@@ -19,19 +19,18 @@ except Exception as e:
     IMAGE_ANALYSIS_LLM = None
     IMAGE_SERVICE_READY = False
 
-def summarize_medical_image(base64_image: str) -> str:
+def summarize_medical_image(image_url: str) -> str:
     """
-    Base64 인코딩된 의료 이미지(처방전/결과지)를 LLM에 전달하여 요약합니다.
+    이미지 URL(처방전/검사결과 등)을 LLM에 전달하여 요약합니다.
     """
     if not IMAGE_SERVICE_READY:
         return "오류: 이미지 분석 서비스가 올바르게 초기화되지 않았습니다."
 
-    # 텍스트와 Base64 이미지를 포함하는 HumanMessage 생성
+    # 텍스트 + 이미지 URL을 포함한 HumanMessage 생성
     message = HumanMessage(
         content=[
             {"type": "text", "text": ocr_prompt},
-            # Base64 문자열을 GPT API 형식에 맞게 URL로 변환하여 전달합니다.
-            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
+            {"type": "image_url", "image_url": {"url": image_url}},
         ]
     )
 
