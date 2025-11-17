@@ -1,14 +1,24 @@
+# services/rag_service.py
+
 import torch
-from sentence_transformers import CrossEncoder
+from sentence_transformers import CrossEncoder 
 from langchain_community.vectorstores import FAISS
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-import config
-from prompts import medi_nyang_prompt
 
+# Fallback 전용 프롬프트 임포트
+# 💡 수정됨: 파일 이름까지 명시하여 정확한 모듈 경로를 지정합니다.
+from prompts.rag_prompts import medi_nyang_prompt 
+from prompts.fallback_prompt import fallback_prompt 
+
+# 우리가 만든 설정과 프롬프트를 가져옵니다.
+import config
+
+# LangSmith 설정 실행
 config.setup_langsmith()
 
+# BgeReranker 클래스는 그대로 유지
 class BgeReranker:
     """HuggingFace BGE reranker 래퍼"""
     def __init__(self, model_name="BAAI/bge-reranker-base", top_n=5, device=None):
@@ -31,19 +41,23 @@ try:
         embeddings,
         allow_dangerous_deserialization=True
     )
+    print("서비스 모듈: FAISS 벡터스토어 로드 성공.")
 
+    # 1. Base Retriever 생성 (검색)
     base_retriever = vectorstore.as_retriever(search_kwargs={"k": config.BASE_K})
     print(f"서비스 모듈: Base Retriever (K={config.BASE_K}) 생성 완료.")
 
+    # 2. Reranker 초기화
     reranker = BgeReranker(top_n=config.RERANK_TOP_N)
     print("서비스 모듈: BGE Reranker 초기화 완료.")
 
-    rag_llm = ChatOpenAI(model_name=config.RAG_MODEL_NAME, temperature=0)
-
+    # 3. 검색 및 Rerank 결합 함수
     def retrieve_and_rerank(question):
         docs = base_retriever.invoke(question)
         return reranker.rerank(question, docs)
 
+    # 4. RAG Chain 생성 (메인)
+    rag_llm = ChatOpenAI(model_name=config.RAG_MODEL_NAME, temperature=0)
     rag_chain = (
         {"context": retrieve_and_rerank, "question": RunnablePassthrough()}
         | medi_nyang_prompt
@@ -52,13 +66,21 @@ try:
     )
     print("서비스 모듈: RAG + Rerank 체인 생성 완료.")
 
+    # 5. Fallback Chain 생성 (새로 추가)
     fallback_llm = ChatOpenAI(model_name=config.FALLBACK_MODEL_NAME, temperature=0.7)
-    print("서비스 모듈: 폴백 LLM 생성 완료.")
+    fallback_chain = (
+        {"question": RunnablePassthrough()}
+        | fallback_prompt # 👈 Fallback 전용 프롬프트 사용
+        | fallback_llm
+        | StrOutputParser()
+    )
+    print("서비스 모듈: Fallback Chain 생성 완료.")
+
 
 except Exception as e:
     print(f"FATAL: RAG 서비스 초기화 실패: {e}")
     rag_chain = None
-    fallback_llm = None
+    fallback_chain = None
 
 
 def get_answer(history: list[tuple[str, str]], current_question: str) -> str:
@@ -105,4 +127,3 @@ def get_answer(history: list[tuple[str, str]], current_question: str) -> str:
         final_answer = rag_text
 
     return final_answer
-

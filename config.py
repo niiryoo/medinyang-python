@@ -14,8 +14,8 @@ LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") # .env에 OPENAI_API_KEY도 있어야 합니다.
 
 # --- 모델 설정 ---
-RAG_MODEL_NAME = "gpt-4o-mini"
-FALLBACK_MODEL_NAME = "gpt-4o"
+RAG_MODEL_NAME = "gpt-4o"
+FALLBACK_MODEL_NAME = "gpt-4o-mini"
 EMBEDDING_MODEL_NAME = "text-embedding-ada-002" # (FAISS 생성 시 사용한 모델)
 
 # --- DB 경로 ---
