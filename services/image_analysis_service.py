@@ -26,10 +26,12 @@ def summarize_medical_image(image_url: str) -> str:
     if not IMAGE_SERVICE_READY:
         return "오류: 이미지 분석 서비스가 올바르게 초기화되지 않았습니다."
 
+    prompt_text = ocr_prompt.format()
+
     # 텍스트 + 이미지 URL을 포함한 HumanMessage 생성
     message = HumanMessage(
         content=[
-            {"type": "text", "text": ocr_prompt},
+            {"type": "text", "text": prompt_text},
             {"type": "image_url", "image_url": {"url": image_url}},
         ]
     )
