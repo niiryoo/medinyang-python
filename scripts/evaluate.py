@@ -53,11 +53,46 @@ def is_hit(meta, gold):
             and meta.get("intention") == gold["intention"])
 
 
+def add_retrieval_args(ap):
+    ap.add_argument("--index", default="db_ada")
+    ap.add_argument("--k", type=int, default=20)
+    ap.add_argument("--intent-filter", action="store_true")
+    ap.add_argument("--intent-model", default=str(ROOT / "models" / "intent.joblib"))
+    ap.add_argument("--intent-topk", type=int, default=1)
+    ap.add_argument("--intent-min-conf", type=float, default=0.0)
+    # 의도가 코퍼스의 약 1/11 - 기본 fetch_k=20 이면 필터 후 잔여 2건 수준
+    ap.add_argument("--fetch-k", type=int, default=8000)
+
+
+def build_search(vs, retriever, args):
+    """(문서, 예측의도, 신뢰도)를 돌려주는 함수 반환. evaluate 와 dump_pairs 가 공유."""
+    if not args.intent_filter:
+        return lambda q: (retriever.invoke(q), None, None)
+
+    import joblib
+    clf = joblib.load(args.intent_model)["model"]
+    print(f"의도 분류기 로드 {args.intent_model} (topk={args.intent_topk}, fetch_k={args.fetch_k})")
+
+    def search(question):
+        proba = clf.predict_proba([question])[0]
+        order = proba.argsort()[::-1][:args.intent_topk]
+        labels = [clf.classes_[i] for i in order]
+        conf = float(proba[order[0]])
+        if conf < args.intent_min_conf:  # 분류가 불확실하면 필터 없이
+            return retriever.invoke(question), labels[0], conf
+        flt = {"intention": labels[0]} if len(labels) == 1 else {"intention": {"$in": labels}}
+        docs = vs.similarity_search(question, k=args.k, fetch_k=args.fetch_k, filter=flt)
+        if not docs:  # 필터가 전부 걸러낸 경우 무필터로 재시도
+            docs = retriever.invoke(question)
+        return docs, labels[0], float(proba[order[0]])
+
+    return search
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--index", default="db_ada")
+    add_retrieval_args(ap)
     ap.add_argument("--golden", default=str(ROOT / "data" / "goldenset.jsonl"))
-    ap.add_argument("--k", type=int, default=20)
     ap.add_argument("--rerank", action="store_true")
     ap.add_argument("--reranker-model", default=DEFAULT_RERANKER)
     ap.add_argument("--hybrid", action="store_true")
@@ -102,6 +137,8 @@ def main():
             weights=[args.bm25_weight, 1 - args.bm25_weight],
         )
 
+    search = build_search(vs, retriever, args)
+
     reranker = None
     if args.rerank:
         from sentence_transformers import CrossEncoder
@@ -117,7 +154,7 @@ def main():
     t0 = time.time()
 
     for i, g in enumerate(golden, 1):
-        docs = retriever.invoke(g["question"])
+        docs, intent_pred, intent_conf = search(g["question"])
         if not docs:
             continue
 
@@ -147,12 +184,17 @@ def main():
             "intention_rate": {f"@{c}": intent_rate[c][-1] for c in CUTS},
             "disease_rate": {f"@{c}": disease_rate[c][-1] for c in CUTS},
             "rr": rr[-1],
+            "intent_pred": intent_pred,
+            "intent_conf": intent_conf,
+            "intent_correct": None if intent_pred is None else intent_pred == g["intention"],
         })
 
         if i % 20 == 0:
             print(f"  {i}/{len(golden)} ({time.time() - t0:.0f}s)", flush=True)
 
     label = args.index
+    if args.intent_filter:
+        label += f" +intent(top{args.intent_topk})"
     if args.hybrid:
         label += f" +bm25({args.bm25_weight},{args.bm25_tokenizer})"
     if args.rerank:
@@ -169,6 +211,10 @@ def main():
         "bm25_tokenizer": args.bm25_tokenizer if args.hybrid else None,
         "rerank": args.rerank,
         "reranker_model": args.reranker_model if args.rerank else None,
+        "intent_filter": args.intent_filter,
+        "intent_topk": args.intent_topk if args.intent_filter else None,
+        "intent_accuracy": (statistics.mean([q["intent_correct"] for q in per_query])
+                            if args.intent_filter and per_query else None),
         "precision": {f"@{c}": statistics.mean(prec[c]) for c in CUTS if prec[c]},
         "intention_rate": {f"@{c}": statistics.mean(intent_rate[c]) for c in CUTS if intent_rate[c]},
         "disease_rate": {f"@{c}": statistics.mean(disease_rate[c]) for c in CUTS if disease_rate[c]},
@@ -190,6 +236,8 @@ def main():
         print(f"  {name:<22}{row}")
     print()
     print(f"  MRR {result['mrr']:.4f}   무작위 기대값 0.0016   소요 {result['elapsed_sec']}s")
+    if result["intent_accuracy"] is not None:
+        print(f"  의도 분류 정확도 {result['intent_accuracy']:.4f} (골든셋 기준)")
     print()
     print(f"  의도별 Precision@{PRIMARY_CUT}:")
     for k, v in sorted(result["per_intention_at5"].items(), key=lambda x: -x[1]):

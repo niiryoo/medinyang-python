@@ -13,3 +13,6 @@ data/
 
 # 모델별 인덱스 산출물 (db_ada, db_3small, db_smoke ...)
 db_*/
+
+# 학습 산출물 - scripts/train_intent.py 로 재생성
+models/

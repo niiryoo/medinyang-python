@@ -1,6 +1,7 @@
 """재순위화 입력 덤프. Colab GPU 용.
 
     python -m scripts.dump_pairs
+    python -m scripts.dump_pairs --intent-filter --out data/pairs-intent.json
 """
 
 import argparse
@@ -11,7 +12,7 @@ from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings
 
-from scripts.evaluate import INDEX_MODEL
+from scripts.evaluate import INDEX_MODEL, add_retrieval_args, build_search
 
 load_dotenv()
 
@@ -20,9 +21,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--index", default="db_3small")
+    add_retrieval_args(ap)
+    ap.set_defaults(index="db_3small")
     ap.add_argument("--golden", default=str(ROOT / "data" / "goldenset.jsonl"))
-    ap.add_argument("--k", type=int, default=20)
     ap.add_argument("--out", default=str(ROOT / "data" / "pairs.json"))
     args = ap.parse_args()
 
@@ -34,16 +35,19 @@ def main():
         allow_dangerous_deserialization=True,
     )
     retriever = vs.as_retriever(search_kwargs={"k": args.k})
-    print(f"골든셋 {len(golden)}건 | {args.index} | k={args.k}")
+    search = build_search(vs, retriever, args)
+    print(f"골든셋 {len(golden)}건 | {args.index} | k={args.k} | intent={args.intent_filter}")
 
     rows = []
     for i, g in enumerate(golden, 1):
-        docs = retriever.invoke(g["question"])
+        docs, intent_pred, intent_conf = search(g["question"])
         rows.append({
             "source": g["source"],
             "question": g["question"],
             "gold_disease": g["disease_name"],
             "gold_intention": g["intention"],
+            "intent_pred": intent_pred,
+            "intent_conf": intent_conf,
             "docs": [{
                 "text": d.page_content,
                 "disease_name": d.metadata.get("disease_name"),
@@ -60,6 +64,7 @@ def main():
         "index": args.index,
         "embedding_model": model,
         "k": args.k,
+        "intent_filter": args.intent_filter,
         "queries": rows,
     }, ensure_ascii=False), encoding="utf-8")
 
