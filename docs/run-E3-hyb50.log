@@ -1,0 +1,41 @@
+C:\Users\User\Desktop\medinyang\medinyang-python\scripts\evaluate.py:24: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+  from langchain_community.vectorstores import FAISS
+골든셋 220건 | db_3small (text-embedding-3-small) | 문서 102245 | k=20
+BM25 인덱싱 102245건 (tokenizer=ko)
+BM25 완료 45s
+  20/220 (34s)
+  40/220 (56s)
+  60/220 (74s)
+  80/220 (93s)
+  100/220 (114s)
+  120/220 (169s)
+  140/220 (231s)
+  160/220 (259s)
+  180/220 (278s)
+  200/220 (294s)
+  220/220 (311s)
+
+==============================================================
+db_3small +bm25(0.5,ko)   (질의 220건)
+==============================================================
+                                @5       @10       @20
+  Precision (질환+의도)         0.3955    0.3891    0.3730
+  의도 일치율                    0.4627    0.4614    0.4475
+  질환 일치율                    0.7909    0.7973    0.7977
+
+  MRR 0.5641   무작위 기대값 0.0016   소요 310.7s
+
+  의도별 Precision@5:
+    재활         0.5500  (n=20)
+    약물         0.4900  (n=20)
+    예방         0.4800  (n=20)
+    진단         0.4700  (n=20)
+    식이, 생활     0.4400  (n=20)
+    운동         0.4300  (n=20)
+    증상         0.4200  (n=20)
+    검진         0.3400  (n=20)
+    원인         0.2700  (n=20)
+    치료         0.2600  (n=20)
+    정의         0.2000  (n=20)
+
+저장: docs\g220-E3-hyb50.json
