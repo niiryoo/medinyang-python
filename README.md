@@ -2,7 +2,6 @@
 
 > [KNU-OldMan/medinyang-python](https://github.com/KNU-OldMan/medinyang-python)의 포크.
 > 논문 게재 후 코드 감사에서 식별한 결함을 수정하고, 검색 파이프라인을 측정 기반으로 재구성했다.
-> 전체 변경 내역: [PR #1](https://github.com/niiryoo/medinyang-python/pull/1)
 
 원 프로젝트는 「JSON 데이터 구조화 및 이중 재순위화 기법을 적용한 의료용 RAG 챗봇 시스템 구현」
 (정보통신논문지 Vol.30, 2026.02)의 구현체다. 게재 시점 코드에는 검색 품질을 재는 수단이 없었고,
@@ -84,79 +83,46 @@ Precision은 질환과 의도를 동시에 맞혀야 오르는 지표라, 두 �
 
 ### 문서
 
-- 측정 리포트: [docs/EVALUATION.md](docs/EVALUATION.md)
-- ADR 7건: [docs/adr/](docs/adr/)
-- 원자료: `docs/results/*.json` (질의별 결과 포함, AI Hub 문서 원문 미포함)
+- [docs/EVALUATION.md](docs/EVALUATION.md) — 측정 설계와 실험 9종
+- [docs/adr/](docs/adr/) — 결정 기록 9건
+- [docs/results/](docs/results/) — 질의별 원자료 21개. 신뢰구간 재계산 가능, AI Hub 원문 미포함
 
 > 게재 시점 인덱스는 수작업 선별이라 재현 불가. 본 측정은 동일 데이터셋에서 재현 가능한
 > 규칙으로 구성한 인덱스 기준이며, 절대값이 아닌 상대 비교로만 해석한다.
 
 ---
 
-## 사전 준비
+## 실행
 
-- Git
-- Python 3.11.2 (`pyproject.toml`에 고정)
-- Poetry — `pip install poetry`
-
-## 환경 설정
+AI Hub 「초거대AI 사전학습용 헬스케어 질의응답 데이터」는 신청·승인이 필요하고,
+인덱스 빌드에 약 48분과 $2.7이 든다. 데이터 없이는 테스트까지만 돌아간다.
 
 ```bash
-git clone https://github.com/niiryoo/medinyang-python
-cd medinyang-python
-poetry install
-```
-
-Poetry가 3.11.2를 찾지 못하면 버전을 먼저 지정한다.
-
-```bash
-poetry env use 3.11.2
-poetry install
-```
-
-`.env`를 프로젝트 루트에 만든다. 항목은 [.env.example](.env.example) 참고.
-
-```env
-OPENAI_API_KEY="..."
-LANGCHAIN_API_KEY="..."   # 미설정 시 트레이싱만 비활성화
-```
-
-```bash
+poetry install                            # Python 3.11.2 고정
+cp .env.example .env                      # OPENAI_API_KEY 필수
 poetry run pytest -q
+
+poetry run python -m scripts.preprocess   # zip -> data/answers.jsonl
+poetry run python -m scripts.make_db      # JSONL -> FAISS
+poetry run python -m scripts.build_goldenset
+poetry run python -m scripts.train_intent
+
+poetry run uvicorn main:app --reload      # http://127.0.0.1:8000/docs
 ```
 
-## 인덱스 빌드
+인덱스와 임베딩 모델은 함께 바꾼다. 어긋나도 예외가 나지 않고 그럴듯한 오답이 나온다.
 
-AI Hub 「초거대AI 사전학습용 헬스케어 질의응답 데이터」가 필요하다.
-zip 경로는 `SRC_ZIP` 환경변수로 지정한다.
-
-```bash
-poetry run python -m scripts.preprocess    # zip -> data/answers.jsonl
-poetry run python -m scripts.make_db       # JSONL -> FAISS (약 48분, 약 $2.7)
-```
-
-개별 파일 10만 개를 여는 방식은 1.4 it/s로 붕괴하므로 zip에서 직접 읽어 JSONL로 만든다
-(987 it/s). 인덱스와 임베딩 모델은 반드시 함께 바꿔야 한다 — 어긋나면 예외 없이
-그럴듯한 오답이 나온다.
-
-## 서버 실행
+### 측정 재실행
 
 ```bash
-poetry run uvicorn main:app --reload
-```
-
-http://127.0.0.1:8000/docs 에서 API 문서를 확인한다.
-
-## 성능 측정
-
-```bash
-poetry run python -m scripts.build_goldenset                                # 골든셋 220건
-poetry run python -m scripts.train_intent                                   # 의도 분류기
 poetry run python -m scripts.evaluate --index db_3small --intent-filter --out docs/results/eval.json
-poetry run python -m scripts.compare docs/results/eval.json docs/results/g220-E1-ada.json   # 대응표본 비교
-poetry run python -m scripts.dump_pairs --intent-filter                     # 재순위화 입력 덤프
-poetry run python -m scripts.choose_threshold docs/results/rerank-base.json         # 임계값 산출
+poetry run python -m scripts.compare docs/results/eval.json docs/results/g220-E1-ada.json
+poetry run python -m scripts.eval_citation --intent-filter --limit 44
 ```
 
 재순위화 측정은 CPU에서 질의당 25초가 걸린다. GPU가 없으면
 [notebooks/rerank_colab.ipynb](notebooks/rerank_colab.ipynb)를 Colab에서 실행한다.
+
+---
+
+<sub>1차 개선분: [PR #1](https://github.com/niiryoo/medinyang-python/pull/1). 이후 작업으로 수치가 갱신됐다.</sub>
