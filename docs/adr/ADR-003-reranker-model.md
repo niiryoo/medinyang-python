@@ -1,5 +1,9 @@
 # ADR-003: 리랭커 모델 선택 — 한국어 특화 모델 기각
 
+> **사용 여부는 [ADR-007](ADR-007-reranker-removal.md)이 대체한다.** 의도 필터(ADR-006)
+> 도입 후 재순위화의 이득이 구분불가로 바뀌어 기본 비활성이 됐다.
+> 모델 선택(bge-reranker-base > bge-reranker-v2-m3-ko) 결론은 그대로 유효하다.
+
 ## 관측
 
 논문과 코드가 쓰는 `BAAI/bge-reranker-base`는 다국어 모델이다. 한국어 의료 질의에
