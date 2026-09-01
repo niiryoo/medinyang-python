@@ -1,7 +1,5 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-import base64
-from io import BytesIO
 
 
 # 핵심 로직이 담긴 서비스 모듈을 가져옵니다.
@@ -22,18 +20,6 @@ class QuestionRequest(BaseModel):
 class AnswerResponse(BaseModel):
     answer: str
 
-def encode_file_to_base64(file: UploadFile) -> str:
-    """업로드된 파일을 읽어 Base64 문자열로 인코딩합니다."""
-    try:
-        # 파일 내용을 메모리에 읽어옵니다.
-        file_bytes = file.file.read()
-        
-        # Base64로 인코딩하고 UTF-8 디코딩합니다.
-        return base64.b64encode(file_bytes).decode("utf-8")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"File encoding error: {e}")
-    
-    
 @router.post("/ask", response_model=AnswerResponse)
 def ask_question(request: QuestionRequest):
     """

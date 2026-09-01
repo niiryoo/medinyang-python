@@ -2,7 +2,6 @@
 
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
-from langchain_core.output_parsers import StrOutputParser
 import config
 
 from prompts.ocr_prompt import ocr_prompt 

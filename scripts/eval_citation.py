@@ -8,7 +8,6 @@ import json
 import re
 import statistics
 import time
-from collections import Counter
 from pathlib import Path
 
 from dotenv import load_dotenv
