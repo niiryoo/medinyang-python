@@ -1,5 +1,7 @@
 # services/rag_service.py
 
+from pathlib import Path
+
 import torch
 from sentence_transformers import CrossEncoder
 from langchain_community.vectorstores import FAISS
@@ -55,8 +57,27 @@ try:
     base_retriever = vectorstore.as_retriever(search_kwargs={"k": config.BASE_K})
     reranker = BgeReranker(top_n=config.RERANK_TOP_N)
 
+    intent_clf = None
+    intent_path = Path(config.INTENT_MODEL_PATH)
+    if intent_path.exists():
+        import joblib
+        intent_clf = joblib.load(intent_path)["model"]
+        print(f"서비스 모듈: 의도 분류기 로드 {intent_path}")
+    else:
+        print(f"서비스 모듈: 의도 분류기 없음 ({intent_path}) - 필터 비활성")
+
+    def retrieve(question):
+        if intent_clf is None:
+            return base_retriever.invoke(question)
+        intention = intent_clf.predict([question])[0]
+        docs = vectorstore.similarity_search(
+            question, k=config.BASE_K, fetch_k=config.INTENT_FETCH_K,
+            filter={"intention": intention},
+        )
+        return docs or base_retriever.invoke(question)
+
     def retrieve_and_rerank(question):
-        return reranker.rerank(question, base_retriever.invoke(question))
+        return reranker.rerank(question, retrieve(question))
 
     rag_llm = ChatOpenAI(model_name=config.RAG_MODEL_NAME, temperature=0)
     rag_chain = medi_nyang_prompt | rag_llm | StrOutputParser()

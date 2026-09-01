@@ -33,6 +33,12 @@ RELEVANCE_THRESHOLD = None
 BASE_K = 20        # 벡터 검색 후보 수
 RERANK_TOP_N = 5   # 재순위화 후 LLM에 넘길 문서 수
 
+# --- 의도 필터 ---
+# scripts/train_intent.py 산출물. 파일이 없으면 필터 없이 동작
+INTENT_MODEL_PATH = os.getenv("INTENT_MODEL_PATH", "models/intent.joblib")
+# 필터가 후보를 약 1/11로 줄이므로 넉넉히 확보
+INTENT_FETCH_K = int(os.getenv("INTENT_FETCH_K", "8000"))
+
 
 
 # 키 없이 os.environ 대입 시 TypeError - import 단계에서 서버 사망
