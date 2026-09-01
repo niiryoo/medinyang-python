@@ -34,8 +34,14 @@ RERANK_TOP_N = 5  # reranker가 상위 몇 개 문서만 사용할지
 
 
 
-# LangSmith 환경 변수 설정 실행
+# 키가 없으면 os.environ 대입이 TypeError를 내고 import 단계에서 서버가 죽는다.
+# 트레이싱은 선택 기능이므로 건너뛴다.
 def setup_langsmith():
+    if not LANGCHAIN_API_KEY:
+        print("[config] LANGCHAIN_API_KEY 미설정 - 트레이싱 비활성화")
+        os.environ["LANGCHAIN_TRACING_V2"] = "false"
+        return
+
     os.environ["LANGCHAIN_TRACING_V2"] = LANGCHAIN_TRACING_V2
     os.environ["LANGCHAIN_ENDPOINT"] = LANGCHAIN_ENDPOINT
     os.environ["LANGCHAIN_PROJECT"] = LANGCHAIN_PROJECT
