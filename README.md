@@ -16,16 +16,21 @@
 
 | 지표 | 논문 설정 | 최종 | 차이 | 95% CI | 판정 |
 |---|---|---|---|---|---|
-| Precision@5 | 0.4800 | 0.5564 | +7.64%p | [+3.25, +12.02] | 유의 |
-| 질환 일치@5 | 0.8527 | 0.9336 | +8.09%p | [+4.61, +11.57] | 유의 |
-| 의도 일치@5 | 0.5555 | 0.5982 | +4.27%p | [+0.10, +8.45] | 유의 |
+| Precision@5 | 0.4800 | **0.7536** | +27.36%p | [+21.44, +33.29] | 유의 |
+| 의도 일치@5 | 0.5555 | 0.8773 | +32.18%p | [+26.16, +38.21] | 유의 |
+| 질환 일치@5 | 0.8527 | 0.8655 | +1.27%p | [-3.05, +5.59] | 구분불가 |
+| MRR | 0.5581 | 0.7674 | — | — | — |
 
 무작위 기대값은 0.0016이다 (조합당 정답 문서 중앙값 160건 / 전체 102,008건).
+
+개선이 사실상 전부 의도 축에서 나왔다. 질환 축은 임베딩 교체로 얻은 만큼을
+의도 필터가 반납해 상쇄됐다.
 
 ### 주요 수정
 
 | 변경 | 근거 |
 |---|---|
+| 질의 의도 분류기 + 메타데이터 필터 | Precision@5 +19.73%p · [ADR-006](docs/adr/ADR-006-intent-classifier.md) |
 | 폴백 경로에 system 메시지 복구 | 검색 실패 시 안전 지침 없는 LLM이 의료 질문에 답하던 상태 · [ADR-005](docs/adr/ADR-005-fallback-chain-wiring.md) |
 | 임베딩 ada-002 → text-embedding-3-small | Precision@5 +4.64%p, 가격 1/5 · [ADR-001](docs/adr/ADR-001-embedding-model.md) |
 | 재순위화 점수 반환, 검색/생성 분리 | 점수를 버리면 측정도 게이팅도 불가 · [ADR-004](docs/adr/ADR-004-fallback-gating.md) |
@@ -38,16 +43,26 @@
 | BM25 하이브리드 | dense 단독 대비 13.09%p 열위 · [ADR-002](docs/adr/ADR-002-hybrid-retrieval.md) |
 | 한국어 특화 리랭커 | 9개 지표 전부 구분불가, 비용 3.5배 · [ADR-003](docs/adr/ADR-003-reranker-model.md) |
 | 재순위화 점수 임계값 게이팅 | 정답/오답 점수 분포 중첩, 최고 AUC 0.692 · [ADR-004](docs/adr/ADR-004-fallback-gating.md) |
+| 의도 soft filter (상위 2개 허용) | hard filter 대비 Precision@5 15.09%p 열위 · [ADR-006](docs/adr/ADR-006-intent-classifier.md) |
+| 분류 신뢰도 기반 필터 해제 | 걸수록 악화. 불확실해도 필터가 무필터보다 나음 · [ADR-006](docs/adr/ADR-006-intent-classifier.md) |
 
-### 남은 병목
+### 병목을 찾은 방법
+
+Precision은 질환과 의도를 동시에 맞혀야 오르는 지표라, 두 축으로 분해하면 구조가 드러난다.
 
 ```
 질환 0.9336 × 의도 0.5982 = 0.5585      실측 Precision@5 = 0.5564
 ```
 
-두 오차가 독립적으로 곱해진다. 질환 축은 대체로 해결됐고 의도 축이 병목이며,
-임베딩 교체·하이브리드·재순위화 중 어느 것도 의도를 유의하게 올리지 못했다.
-다음 작업은 질의 의도 분류기 + 메타데이터 필터 · [ADR-006](docs/adr/ADR-006-intent-classifier.md).
+거의 정확히 일치한다. 두 오차가 독립적으로 곱해지고 있었다. 임베딩 교체·하이브리드·재순위화
+중 어느 것도 의도 축을 유의하게 올리지 못했고, 세 실험이 같은 결론을 가리켰다 —
+검색기 교체로 풀리는 문제가 아니었다. 의도 분류기를 붙여 0.5982를 0.8773으로 올렸다.
+
+### 남은 것
+
+- 의도 일치율이 분류기 정확도(0.8706)에 묶여 있음. 혼동 쌍은 전부 의미적으로 인접
+- 필터로 반납한 질환 일치율 (0.9336 → 0.8655) 회복
+- 의도 필터 후에도 재순위화가 이득인지 미측정 — 후보가 의도로 균질해지면 변별 축이 하나 줄어듦
 
 ### 문서
 
@@ -113,11 +128,12 @@ http://127.0.0.1:8000/docs 에서 API 문서를 확인한다.
 ## 성능 측정
 
 ```bash
-poetry run python -m scripts.build_goldenset                                    # 골든셋 220건
-poetry run python -m scripts.evaluate --index db_3small --out docs/eval.json    # 검색 성능
-poetry run python -m scripts.compare docs/eval.json docs/g220-E1-ada.json       # 대응표본 비교
-poetry run python -m scripts.dump_pairs                                         # 재순위화 입력 덤프
-poetry run python -m scripts.choose_threshold docs/rerank-base.json             # 임계값 산출
+poetry run python -m scripts.build_goldenset                                # 골든셋 220건
+poetry run python -m scripts.train_intent                                   # 의도 분류기
+poetry run python -m scripts.evaluate --index db_3small --intent-filter --out docs/eval.json
+poetry run python -m scripts.compare docs/eval.json docs/g220-E1-ada.json   # 대응표본 비교
+poetry run python -m scripts.dump_pairs --intent-filter                     # 재순위화 입력 덤프
+poetry run python -m scripts.choose_threshold docs/rerank-base.json         # 임계값 산출
 ```
 
 재순위화 측정은 CPU에서 질의당 25초가 걸린다. GPU가 없으면

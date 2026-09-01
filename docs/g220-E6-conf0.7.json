@@ -1,0 +1,5327 @@
+{
+  "label": "db_3small +intent(top1)",
+  "index": "db_3small",
+  "embedding_model": "text-embedding-3-small",
+  "k": 20,
+  "n": 220,
+  "hybrid": false,
+  "bm25_weight": null,
+  "bm25_tokenizer": null,
+  "rerank": false,
+  "reranker_model": null,
+  "intent_filter": true,
+  "intent_topk": 1,
+  "intent_accuracy": 0.8772727272727273,
+  "precision": {
+    "@5": 0.7181818181818181,
+    "@10": 0.7113636363636364,
+    "@20": 0.6918181818181818
+  },
+  "intention_rate": {
+    "@5": 0.8327272727272728,
+    "@10": 0.8327272727272728,
+    "@20": 0.8306818181818182
+  },
+  "disease_rate": {
+    "@5": 0.8663636363636363,
+    "@10": 0.86,
+    "@20": 0.8427272727272728
+  },
+  "mrr": 0.7470445526695527,
+  "per_intention_at5": {
+    "검진": 0.65,
+    "식이, 생활": 0.65,
+    "약물": 0.8,
+    "예방": 0.79,
+    "운동": 0.58,
+    "원인": 0.79,
+    "재활": 0.75,
+    "정의": 0.52,
+    "증상": 0.76,
+    "진단": 0.85,
+    "치료": 0.76
+  },
+  "elapsed_sec": 62.1,
+  "per_query": [
+    {
+      "source": "HC-Q-1167462.json",
+      "intention": "검진",
+      "disease_name": "후천성 면역결핍증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9900984299920997,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1120187.json",
+      "intention": "검진",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.8279910166045129,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1160569.json",
+      "intention": "검진",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9963134114208128,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1086589.json",
+      "intention": "검진",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 0.8,
+        "@10": 0.8,
+        "@20": 0.9
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.8,
+        "@20": 0.9
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.7949173503790392,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1191426.json",
+      "intention": "검진",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.8074693190751897,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1191344.json",
+      "intention": "검진",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9032593307631915,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1120326.json",
+      "intention": "검진",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9713108427679619,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1120149.json",
+      "intention": "검진",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9791575867927541,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1114652.json",
+      "intention": "검진",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9925940356447814,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1160833.json",
+      "intention": "검진",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.5060915996544474,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1154301.json",
+      "intention": "검진",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9563080364160506,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1183668.json",
+      "intention": "검진",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9873672250275274,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1160589.json",
+      "intention": "검진",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.7279856571347841,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1160573.json",
+      "intention": "검진",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9237632789671538,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1120109.json",
+      "intention": "검진",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9933663545882458,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1191296.json",
+      "intention": "검진",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9086882217134175,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1191372.json",
+      "intention": "검진",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9387067261342426,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1114492.json",
+      "intention": "검진",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.4,
+        "@20": 0.25
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.4,
+        "@20": 0.25
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.3333333333333333,
+      "intent_pred": "진단",
+      "intent_conf": 0.48773766307422123,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1154344.json",
+      "intention": "검진",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9411031490342181,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1160543.json",
+      "intention": "검진",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9678153393518477,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1147621.json",
+      "intention": "식이, 생활",
+      "disease_name": "요충증",
+      "precision": {
+        "@5": 0.8,
+        "@10": 0.8,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.8,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9348824095872987,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1171496.json",
+      "intention": "식이, 생활",
+      "disease_name": "구순염",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.3,
+        "@20": 0.3
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.2,
+        "@10": 0.3,
+        "@20": 0.3
+      },
+      "rr": 0.5,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.8786543706086138,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100743.json",
+      "intention": "식이, 생활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.8752092499251719,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100451.json",
+      "intention": "식이, 생활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9748743507463176,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100672.json",
+      "intention": "식이, 생활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.7688043213956535,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1147562.json",
+      "intention": "식이, 생활",
+      "disease_name": "요충증",
+      "precision": {
+        "@5": 0.4,
+        "@10": 0.5,
+        "@20": 0.4
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.4,
+        "@10": 0.5,
+        "@20": 0.4
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9143829857091761,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1127476.json",
+      "intention": "식이, 생활",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9957628692530902,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1171607.json",
+      "intention": "식이, 생활",
+      "disease_name": "구순염",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9798544366283569,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1127628.json",
+      "intention": "식이, 생활",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9289232499049626,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1147720.json",
+      "intention": "식이, 생활",
+      "disease_name": "요충증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9426037012516026,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1091474.json",
+      "intention": "식이, 생활",
+      "disease_name": "디프테리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9714823007087652,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1116255.json",
+      "intention": "식이, 생활",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.7,
+        "@20": 0.6
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 0.7,
+        "@20": 0.6
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.7717864557209552,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1155380.json",
+      "intention": "식이, 생활",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.8,
+        "@20": 0.4
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 0.8,
+        "@20": 0.4
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.985323649863699,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1162172.json",
+      "intention": "식이, 생활",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9173364135333079,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1185508.json",
+      "intention": "식이, 생활",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.6178880088504037,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1116238.json",
+      "intention": "식이, 생활",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 0.4,
+        "@10": 0.3,
+        "@20": 0.25
+      },
+      "intention_rate": {
+        "@5": 0.4,
+        "@10": 0.4,
+        "@20": 0.55
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.8,
+        "@20": 0.65
+      },
+      "rr": 0.3333333333333333,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.5408144967285142,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1171288.json",
+      "intention": "식이, 생활",
+      "disease_name": "구순염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9956439534297524,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100706.json",
+      "intention": "식이, 생활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9352531915107483,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1127489.json",
+      "intention": "식이, 생활",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9795249353855439,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1144165.json",
+      "intention": "식이, 생활",
+      "disease_name": "발진티푸스",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9988933473586081,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1111817.json",
+      "intention": "약물",
+      "disease_name": "말라리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.8438651459767924,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1106662.json",
+      "intention": "약물",
+      "disease_name": "뎅기열",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.5348850175479235,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1138209.json",
+      "intention": "약물",
+      "disease_name": "라임병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9480129993625582,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1168038.json",
+      "intention": "약물",
+      "disease_name": "후천성 면역결핍증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9380518070838341,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1143653.json",
+      "intention": "약물",
+      "disease_name": "발진티푸스",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9576707005118638,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1191989.json",
+      "intention": "약물",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.8785212407501265,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1121955.json",
+      "intention": "약물",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9833801913207405,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1087543.json",
+      "intention": "약물",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9594451308050576,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1191923.json",
+      "intention": "약물",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.8528812371973641,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1143895.json",
+      "intention": "약물",
+      "disease_name": "발진티푸스",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.95
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.641214190503516,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1143735.json",
+      "intention": "약물",
+      "disease_name": "발진티푸스",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9891688539623917,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1184750.json",
+      "intention": "약물",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9614432589725127,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1111684.json",
+      "intention": "약물",
+      "disease_name": "말라리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9687118313339582,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1121450.json",
+      "intention": "약물",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.8321339512783791,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1176388.json",
+      "intention": "약물",
+      "disease_name": "홍역",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.7722216910153756,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1188660.json",
+      "intention": "약물",
+      "disease_name": "일본 뇌염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.8857195209933386,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1173812.json",
+      "intention": "약물",
+      "disease_name": "조류 인플루엔자 인체감염증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9905999576265129,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1106371.json",
+      "intention": "약물",
+      "disease_name": "뎅기열",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9947991313788372,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1087497.json",
+      "intention": "약물",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.9551290050880906,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1121800.json",
+      "intention": "약물",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.8631463429852093,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1131077.json",
+      "intention": "예방",
+      "disease_name": "콜레라",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9953482732216028,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1126983.json",
+      "intention": "예방",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.1
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.1
+      },
+      "rr": 0.25,
+      "intent_pred": "예방",
+      "intent_conf": 0.9438831689788927,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1164706.json",
+      "intention": "예방",
+      "disease_name": "풍진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.731469234378956,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1115450.json",
+      "intention": "예방",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9737582531542848,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1140920.json",
+      "intention": "예방",
+      "disease_name": "심내막염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9534211594771973,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1181455.json",
+      "intention": "예방",
+      "disease_name": "파상풍",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.5573970653046448,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1137729.json",
+      "intention": "예방",
+      "disease_name": "라임병",
+      "precision": {
+        "@5": 0.8,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "rr": 0.5,
+      "intent_pred": "예방",
+      "intent_conf": 0.8611949247410052,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1191728.json",
+      "intention": "예방",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9055458288316982,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1121121.json",
+      "intention": "예방",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.7,
+        "@20": 0.75
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 0.7,
+        "@20": 0.75
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9744787235772899,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1154583.json",
+      "intention": "예방",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 0.8,
+        "@10": 0.4,
+        "@20": 0.2
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.4,
+        "@20": 0.2
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.7521835587637806,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1111370.json",
+      "intention": "예방",
+      "disease_name": "말라리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9324518185325014,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1126931.json",
+      "intention": "예방",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.1
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.1
+      },
+      "rr": 0.2,
+      "intent_pred": "예방",
+      "intent_conf": 0.9645479548807713,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1151668.json",
+      "intention": "예방",
+      "disease_name": "광우병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.986974087679732,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1096107.json",
+      "intention": "예방",
+      "disease_name": "매독",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.2,
+        "@20": 0.15
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.2,
+        "@20": 0.15
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.3333333333333333,
+      "intent_pred": "진단",
+      "intent_conf": 0.3895810896846912,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1170969.json",
+      "intention": "예방",
+      "disease_name": "구순염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.7212461212001385,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1146705.json",
+      "intention": "예방",
+      "disease_name": "요충증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9233878917308346,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1143498.json",
+      "intention": "예방",
+      "disease_name": "발진티푸스",
+      "precision": {
+        "@5": 0.6,
+        "@10": 0.6,
+        "@20": 0.55
+      },
+      "intention_rate": {
+        "@5": 0.6,
+        "@10": 0.6,
+        "@20": 0.55
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.5831522063626061,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1158230.json",
+      "intention": "예방",
+      "disease_name": "장티푸스",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9674607201126076,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1164876.json",
+      "intention": "예방",
+      "disease_name": "풍진",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9725577604219365,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1140954.json",
+      "intention": "예방",
+      "disease_name": "심내막염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9968480722500027,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101327.json",
+      "intention": "운동",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9888377119243881,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1186158.json",
+      "intention": "운동",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9049825065463282,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1186091.json",
+      "intention": "운동",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9809823742166096,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101459.json",
+      "intention": "운동",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9823642747584057,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1156214.json",
+      "intention": "운동",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.8516046796684384,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101601.json",
+      "intention": "운동",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.2,
+        "@20": 0.35
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.2,
+        "@20": 0.35
+      },
+      "rr": 0.16666666666666666,
+      "intent_pred": "운동",
+      "intent_conf": 0.9678940380489224,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1156321.json",
+      "intention": "운동",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9703467731087578,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1156254.json",
+      "intention": "운동",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9830215117135926,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1156211.json",
+      "intention": "운동",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 0.6,
+        "@10": 0.5,
+        "@20": 0.35
+      },
+      "intention_rate": {
+        "@5": 0.6,
+        "@10": 0.5,
+        "@20": 0.35
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.5133489245192094,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1162949.json",
+      "intention": "운동",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.6,
+        "@20": 0.3
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 0.6,
+        "@20": 0.3
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9841273713571221,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1117511.json",
+      "intention": "운동",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9645645400834504,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1117570.json",
+      "intention": "운동",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9296529441986573,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101370.json",
+      "intention": "운동",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9287224532935113,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1117307.json",
+      "intention": "운동",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9796653425337314,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1156373.json",
+      "intention": "운동",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.8356313465619244,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101541.json",
+      "intention": "운동",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9813025830878638,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101355.json",
+      "intention": "운동",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9762039680443749,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1117106.json",
+      "intention": "운동",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.9039024922366845,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1186205.json",
+      "intention": "운동",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.858951196835167,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101623.json",
+      "intention": "운동",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "운동",
+      "intent_conf": 0.98374752041561,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1166099.json",
+      "intention": "원인",
+      "disease_name": "풍진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9385509515861798,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1097583.json",
+      "intention": "원인",
+      "disease_name": "매독",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.8969059098541895,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1088841.json",
+      "intention": "원인",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9721073776181117,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1192787.json",
+      "intention": "원인",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.6358374048064653,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1133912.json",
+      "intention": "원인",
+      "disease_name": "반코마이신 내성 장알균 감염증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9687885099427408,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1124274.json",
+      "intention": "원인",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.8540123288345383,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1088629.json",
+      "intention": "원인",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 0.4,
+        "@10": 0.3,
+        "@20": 0.3
+      },
+      "intention_rate": {
+        "@5": 0.4,
+        "@10": 0.3,
+        "@20": 0.3
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.6423150608937906,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1101712.json",
+      "intention": "원인",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.823313658257295,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1179277.json",
+      "intention": "원인",
+      "disease_name": "불명열",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9954022865896031,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1193012.json",
+      "intention": "원인",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.05
+      },
+      "rr": 0.0625,
+      "intent_pred": "원인",
+      "intent_conf": 0.8686431750304128,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1097445.json",
+      "intention": "원인",
+      "disease_name": "매독",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9971171409421006,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1156647.json",
+      "intention": "원인",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.25,
+      "intent_pred": "원인",
+      "intent_conf": 0.4070776427199879,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1088657.json",
+      "intention": "원인",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.9
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.9
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9408559084042887,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1097487.json",
+      "intention": "원인",
+      "disease_name": "매독",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9806556293793469,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1131945.json",
+      "intention": "원인",
+      "disease_name": "콜레라",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9912009128418949,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1189774.json",
+      "intention": "원인",
+      "disease_name": "일본 뇌염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.8244436768355364,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1109819.json",
+      "intention": "원인",
+      "disease_name": "첨형 콘딜로마",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9460156875365923,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1107544.json",
+      "intention": "원인",
+      "disease_name": "뎅기열",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.5,
+        "@20": 0.5
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.5,
+        "@20": 0.5
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.25,
+      "intent_pred": "원인",
+      "intent_conf": 0.5948628795676149,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1179229.json",
+      "intention": "원인",
+      "disease_name": "불명열",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9230274979373148,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1107431.json",
+      "intention": "원인",
+      "disease_name": "뎅기열",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9306465175318799,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1122178.json",
+      "intention": "재활",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9856354537110087,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1185131.json",
+      "intention": "재활",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9461144352296681,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100159.json",
+      "intention": "재활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9642442252598338,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100125.json",
+      "intention": "재활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9628960432756962,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1122239.json",
+      "intention": "재활",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9998344949537515,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1185137.json",
+      "intention": "재활",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.84281412802585,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100260.json",
+      "intention": "재활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9817149728487089,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1094246.json",
+      "intention": "재활",
+      "disease_name": "인유두종 바이러스 감염증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9847603893785296,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1155265.json",
+      "intention": "재활",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.39495279846191633,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100252.json",
+      "intention": "재활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.4,
+        "@10": 0.2,
+        "@20": 0.15
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.565368982825456,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1094123.json",
+      "intention": "재활",
+      "disease_name": "인유두종 바이러스 감염증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9928881191484712,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1122472.json",
+      "intention": "재활",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.7954688243968892,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1122121.json",
+      "intention": "재활",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.9178233172571904,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1168340.json",
+      "intention": "재활",
+      "disease_name": "후천성 면역결핍증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9873063224696425,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1162051.json",
+      "intention": "재활",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9952725929708515,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100050.json",
+      "intention": "재활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9879958669668761,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1100006.json",
+      "intention": "재활",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9950450449801904,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1161942.json",
+      "intention": "재활",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.95
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9965847607578606,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1185154.json",
+      "intention": "재활",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9931745150501542,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1161813.json",
+      "intention": "재활",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "재활",
+      "intent_conf": 0.9832141827918316,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1152528.json",
+      "intention": "정의",
+      "disease_name": "광우병",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.15
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.15
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.06666666666666667,
+      "intent_pred": "정의",
+      "intent_conf": 0.5556897627698396,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1104050.json",
+      "intention": "정의",
+      "disease_name": "구순포진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.9174899155670528,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1109481.json",
+      "intention": "정의",
+      "disease_name": "첨형 콘딜로마",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.9188278221812674,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1104216.json",
+      "intention": "정의",
+      "disease_name": "구순포진",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.1
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.1
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.5,
+      "intent_pred": "정의",
+      "intent_conf": 0.5079390809730238,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1150256.json",
+      "intention": "정의",
+      "disease_name": "호산구 증가증",
+      "precision": {
+        "@5": 0.6,
+        "@10": 0.4,
+        "@20": 0.5
+      },
+      "intention_rate": {
+        "@5": 0.6,
+        "@10": 0.4,
+        "@20": 0.5
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.4072147190316016,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1181572.json",
+      "intention": "정의",
+      "disease_name": "파상풍",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.9170030975830504,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1135757.json",
+      "intention": "정의",
+      "disease_name": "수두",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.9960990657427011,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1158724.json",
+      "intention": "정의",
+      "disease_name": "장티푸스",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.2,
+      "intent_pred": "증상",
+      "intent_conf": 0.6997015533742025,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1192256.json",
+      "intention": "정의",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.9888022219638819,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1128016.json",
+      "intention": "정의",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.2,
+        "@20": 0.3
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.6337905870287567,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1127949.json",
+      "intention": "정의",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.2,
+        "@20": 0.15
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.2,
+        "@20": 0.15
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.25,
+      "intent_pred": "정의",
+      "intent_conf": 0.6392609783796582,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1158670.json",
+      "intention": "정의",
+      "disease_name": "장티푸스",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.3903156076667641,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1141321.json",
+      "intention": "정의",
+      "disease_name": "심내막염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.6145731583323102,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1095000.json",
+      "intention": "정의",
+      "disease_name": "인유두종 바이러스 감염증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.931093657024427,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1112113.json",
+      "intention": "정의",
+      "disease_name": "말라리아",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.43450493526877665,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1189405.json",
+      "intention": "정의",
+      "disease_name": "일본 뇌염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.8812248145027621,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1162579.json",
+      "intention": "정의",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.952413365499221,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1181701.json",
+      "intention": "정의",
+      "disease_name": "파상풍",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.7612954991752174,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1116928.json",
+      "intention": "정의",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.7415574074918138,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1152616.json",
+      "intention": "정의",
+      "disease_name": "광우병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "정의",
+      "intent_conf": 0.7284435306500644,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1175007.json",
+      "intention": "증상",
+      "disease_name": "홍역",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.8254137301106093,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1183604.json",
+      "intention": "증상",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.7060839881497115,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1178160.json",
+      "intention": "증상",
+      "disease_name": "불명열",
+      "precision": {
+        "@5": 1.0,
+        "@10": 0.8,
+        "@20": 0.4
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 0.8,
+        "@20": 0.4
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.9977245963454701,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1153861.json",
+      "intention": "증상",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 0.8,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.9,
+        "@20": 0.95
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.9457780397721208,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1086192.json",
+      "intention": "증상",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.05
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.05,
+      "intent_pred": "증상",
+      "intent_conf": 0.5581014704389949,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1170820.json",
+      "intention": "증상",
+      "disease_name": "구순염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.8,
+        "@20": 0.65
+      },
+      "rr": 0.0,
+      "intent_pred": "원인",
+      "intent_conf": 0.834136789575882,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1126395.json",
+      "intention": "증상",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.8191151907755576,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1187988.json",
+      "intention": "증상",
+      "disease_name": "일본 뇌염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.9665868015860289,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1105770.json",
+      "intention": "증상",
+      "disease_name": "뎅기열",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.8695858151096114,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1098888.json",
+      "intention": "증상",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.7212471492662041,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1160032.json",
+      "intention": "증상",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.8746058257792022,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1167231.json",
+      "intention": "증상",
+      "disease_name": "후천성 면역결핍증",
+      "precision": {
+        "@5": 0.8,
+        "@10": 0.9,
+        "@20": 0.85
+      },
+      "intention_rate": {
+        "@5": 0.8,
+        "@10": 0.9,
+        "@20": 0.85
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "식이, 생활",
+      "intent_conf": 0.3053991962380145,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1143113.json",
+      "intention": "증상",
+      "disease_name": "발진티푸스",
+      "precision": {
+        "@5": 0.6,
+        "@10": 0.6,
+        "@20": 0.5
+      },
+      "intention_rate": {
+        "@5": 0.6,
+        "@10": 0.6,
+        "@20": 0.5
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.3333333333333333,
+      "intent_pred": "증상",
+      "intent_conf": 0.5929633311959343,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1108483.json",
+      "intention": "증상",
+      "disease_name": "첨형 콘딜로마",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.96967062523211,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1090342.json",
+      "intention": "증상",
+      "disease_name": "디프테리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.6076428536742804,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1108587.json",
+      "intention": "증상",
+      "disease_name": "첨형 콘딜로마",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.9870816692509269,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1170693.json",
+      "intention": "증상",
+      "disease_name": "구순염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.3,
+        "@20": 0.45
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.3,
+        "@20": 0.45
+      },
+      "rr": 0.14285714285714285,
+      "intent_pred": "증상",
+      "intent_conf": 0.9950869695618927,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1164570.json",
+      "intention": "증상",
+      "disease_name": "풍진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.8382555528432094,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1126558.json",
+      "intention": "증상",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "증상",
+      "intent_conf": 0.7182682606675412,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1153803.json",
+      "intention": "증상",
+      "disease_name": "헤르페스 바이러스 감염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.1,
+      "intent_pred": "원인",
+      "intent_conf": 0.4340444937117314,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1187088.json",
+      "intention": "진단",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.95
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.95
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.3515007722212821,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1166729.json",
+      "intention": "진단",
+      "disease_name": "풍진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9922369029762967,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1113231.json",
+      "intention": "진단",
+      "disease_name": "말라리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9753357183532927,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1093385.json",
+      "intention": "진단",
+      "disease_name": "디프테리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9563525469315268,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1142427.json",
+      "intention": "진단",
+      "disease_name": "심내막염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.7385957599666515,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1093466.json",
+      "intention": "진단",
+      "disease_name": "디프테리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.998349031152275,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1132658.json",
+      "intention": "진단",
+      "disease_name": "콜레라",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.8946400490273818,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1132501.json",
+      "intention": "진단",
+      "disease_name": "콜레라",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9531025319335561,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1164025.json",
+      "intention": "진단",
+      "disease_name": "HIV 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.3648165318135237,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1119450.json",
+      "intention": "진단",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.8591517950003743,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1129868.json",
+      "intention": "진단",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9558178164846576,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1174817.json",
+      "intention": "진단",
+      "disease_name": "조류 인플루엔자 인체감염증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.991561859383752,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1125738.json",
+      "intention": "진단",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9309490416505664,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1105260.json",
+      "intention": "진단",
+      "disease_name": "구순포진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.7934137310232448,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1089971.json",
+      "intention": "진단",
+      "disease_name": "수족구병",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "검진",
+      "intent_conf": 0.9486241537681652,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1129521.json",
+      "intention": "진단",
+      "disease_name": "성병",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.8081398668969235,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1098475.json",
+      "intention": "진단",
+      "disease_name": "매독",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9685518104122874,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1193725.json",
+      "intention": "진단",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9863591521356664,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1098543.json",
+      "intention": "진단",
+      "disease_name": "매독",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "진단",
+      "intent_conf": 0.9967204360030962,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1183262.json",
+      "intention": "진단",
+      "disease_name": "파상풍",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "disease_rate": {
+        "@5": 0.8,
+        "@10": 0.8,
+        "@20": 0.9
+      },
+      "rr": 0.1111111111111111,
+      "intent_pred": "치료",
+      "intent_conf": 0.47121971026348863,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1193378.json",
+      "intention": "치료",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.7992181508846684,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1193478.json",
+      "intention": "치료",
+      "disease_name": "곰팡이 감염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.9534261308804095,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1132075.json",
+      "intention": "치료",
+      "disease_name": "콜레라",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.997494173019578,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1125539.json",
+      "intention": "치료",
+      "disease_name": "결핵",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.4652441335988476,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1118181.json",
+      "intention": "치료",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "rr": 0.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.8893025094938258,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1104747.json",
+      "intention": "치료",
+      "disease_name": "구순포진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.9916154285935932,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1104754.json",
+      "intention": "치료",
+      "disease_name": "구순포진",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.9041419206682296,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1186861.json",
+      "intention": "치료",
+      "disease_name": "칸디다성 구내염",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.1,
+        "@20": 0.05
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.16666666666666666,
+      "intent_pred": "약물",
+      "intent_conf": 0.6873490073734937,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1118575.json",
+      "intention": "치료",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.7492776445201533,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1092695.json",
+      "intention": "치료",
+      "disease_name": "디프테리아",
+      "precision": {
+        "@5": 0.2,
+        "@10": 0.2,
+        "@20": 0.2
+      },
+      "intention_rate": {
+        "@5": 0.2,
+        "@10": 0.2,
+        "@20": 0.2
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.25,
+      "intent_pred": "치료",
+      "intent_conf": 0.511437319297563,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1179490.json",
+      "intention": "치료",
+      "disease_name": "불명열",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 0.8
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.9688722181322468,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1182846.json",
+      "intention": "치료",
+      "disease_name": "파상풍",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "예방",
+      "intent_conf": 0.9398560480065519,
+      "intent_correct": false
+    },
+    {
+      "source": "HC-Q-1150924.json",
+      "intention": "치료",
+      "disease_name": "호산구 증가증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.98680879812266,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1102465.json",
+      "intention": "치료",
+      "disease_name": "임파선염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.7837323465151173,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1113053.json",
+      "intention": "치료",
+      "disease_name": "말라리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.8850945776792851,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1118338.json",
+      "intention": "치료",
+      "disease_name": "패혈증",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.9976057470473942,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1112840.json",
+      "intention": "치료",
+      "disease_name": "말라리아",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.7177034098493978,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1136703.json",
+      "intention": "치료",
+      "disease_name": "수두",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.999483848087882,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1190111.json",
+      "intention": "치료",
+      "disease_name": "일본 뇌염",
+      "precision": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "intention_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 1.0,
+      "intent_pred": "치료",
+      "intent_conf": 0.9890071967703681,
+      "intent_correct": true
+    },
+    {
+      "source": "HC-Q-1170025.json",
+      "intention": "치료",
+      "disease_name": "후천성 면역결핍증",
+      "precision": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "intention_rate": {
+        "@5": 0.0,
+        "@10": 0.0,
+        "@20": 0.0
+      },
+      "disease_rate": {
+        "@5": 1.0,
+        "@10": 1.0,
+        "@20": 1.0
+      },
+      "rr": 0.0,
+      "intent_pred": "약물",
+      "intent_conf": 0.6762140313601377,
+      "intent_correct": false
+    }
+  ]
+}
