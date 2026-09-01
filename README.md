@@ -121,6 +121,10 @@ OPENAI_API_KEY="..."
 LANGCHAIN_API_KEY="..."   # 미설정 시 트레이싱만 비활성화
 ```
 
+```bash
+poetry run pytest -q
+```
+
 ## 인덱스 빌드
 
 AI Hub 「초거대AI 사전학습용 헬스케어 질의응답 데이터」가 필요하다.
