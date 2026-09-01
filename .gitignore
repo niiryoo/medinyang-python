@@ -3,6 +3,13 @@
 db/
 __pycache__/
 *.pyc
-# 원본 데이터셋 (AI Hub) — 재배포 제한, 용량
+
+# 원본 데이터셋 (AI Hub) - 재배포 제한, 용량
 data/
 *.zip
+
+# 가상환경
+.venv/
+
+# 모델별 인덱스 산출물 (db_ada, db_3small, db_smoke ...)
+db_*/
