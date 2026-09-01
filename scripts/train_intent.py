@@ -27,7 +27,9 @@ SRC_ZIP = os.getenv(
 Q_PREFIX = os.getenv("Q_PREFIX", "1.질문/감염성질환/")
 GOLDEN = Path(os.getenv("OUT_GOLDEN", ROOT / "data" / "goldenset.jsonl"))
 OUT = Path(os.getenv("INTENT_MODEL", ROOT / "models" / "intent.joblib"))
-PER_INTENTION = int(os.getenv("TRAIN_PER_INTENTION", "3000"))
+# 최다 클래스가 13,673건이라 12,000이면 사실상 전량
+# 1000/3000/6000/12000 스윕에서 정확도 0.8532 -> 0.8706 -> 0.8875 -> 0.9000
+PER_INTENTION = int(os.getenv("TRAIN_PER_INTENTION", "12000"))
 SEED = int(os.getenv("SEED", "42"))
 
 
