@@ -1,7 +1,7 @@
-"""AI Hub 답변 JSON -> 단일 JSONL. jq 스키마는 여기서 적용한다.
+"""AI Hub 답변 JSON -> 단일 JSONL. jq 스키마 적용 지점.
 
-개별 파일 10만 개를 여는 방식은 1.4 it/s 로 붕괴한다(열거 1.7초, 열기가 병목).
-zip에서 직접 읽으면 987 it/s.
+개별 파일 10만 개 열기는 1.4 it/s 로 붕괴 (열거 1.7초, 열기가 병목).
+zip 직접 읽기는 987 it/s.
 
     python -m scripts.preprocess
 """

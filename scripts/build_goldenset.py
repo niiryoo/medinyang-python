@@ -1,8 +1,7 @@
-"""질문 JSON -> 골든셋 JSONL.
+"""질문 JSON -> 골든셋 JSONL. 의도별 층화 추출.
 
-정답 라벨은 경로/필드의 (disease_name, intention) 조합이다. 파일 ID로는 매칭되지
-않는다(질문 HC-Q-7자리 / 답변 HC-A-8자리, 교집합 0).
-의도별 층화 추출 - 논문이 주장한 의도 반영 효과를 의도마다 같은 표본으로 재기 위함.
+정답 라벨은 (disease_name, intention) 조합. 파일 ID 매칭 불가
+(질문 HC-Q-7자리 / 답변 HC-A-8자리, 교집합 0).
 
     python -m scripts.build_goldenset
 """

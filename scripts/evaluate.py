@@ -1,11 +1,4 @@
-"""검색 성능 측정.
-
-정답 라벨은 (disease_name, intention) 조합. 조합당 답변이 중앙값 160개라
-Recall@k는 거의 항상 1.0이 되어 변별력이 없다. 그래서 Precision@k를 쓴다.
-무작위 기대값 약 160/102008 = 0.0016.
-
-cut 크기가 다르면 Precision을 비교할 수 없다(20개에서 5개를 고르면 재순위화가
-아무 일을 안 해도 올라간다). 그래서 매 실행마다 @5/@10/@20을 함께 보고한다.
+"""검색 성능 측정. 지표 선정 근거는 docs/adr/ADR-000-evaluation-design.md.
 
     python -m scripts.evaluate --index db_ada
     python -m scripts.evaluate --index db_3small --hybrid
@@ -30,20 +23,18 @@ ROOT = Path(__file__).resolve().parents[1]
 CUTS = (5, 10, 20)
 PRIMARY_CUT = 5  # 의도별 분해와 요약에 쓰는 기준
 
-# 인덱스 빌드에 쓴 모델과 일치해야 한다. 어긋나면 좌표계가 달라 검색이 무의미해진다.
+# 인덱스 빌드에 쓴 모델과 일치 필수 - 불일치 시 좌표계가 달라 검색 무의미
 INDEX_MODEL = {
     "db_ada": "text-embedding-ada-002",
     "db_3small": "text-embedding-3-small",
     "db_smoke": "text-embedding-3-small",
 }
 
-# 논문이 쓴 모델. baseline 재현용 기본값이고, 한국어 특화 모델과 비교할 축으로 둔다.
+# 논문이 쓴 모델. baseline 재현용 기본값
 DEFAULT_RERANKER = "BAAI/bge-reranker-base"
 
-# rank_bm25 기본 전처리는 공백 분리라 조사가 붙은 어절이 다른 토큰이 된다
-# ("감염의" != "감염"). 다만 끝 글자만 보고 떼면 "정의" -> "정" 이 되므로
-# 3글자 이상일 때만 적용한다. 활용형("감염되면")은 못 뗀다 - 형태소 분석기
-# 도입 여부는 측정 후 결정.
+# rank_bm25 기본 전처리는 공백 분리 - 조사 붙은 어절이 별개 토큰 ("감염의" != "감염")
+# 끝 글자만 떼면 "정의" -> "정" 이 되므로 3글자 이상만 적용. 활용형은 미처리
 _JOSA = re.compile(r"(은|는|이|가|을|를|의|에|에서|으로|로|와|과|도|만|까지|부터)$")
 _TOKEN = re.compile(r"[가-힣A-Za-z0-9]+")
 
@@ -92,7 +83,10 @@ def main():
 
     if args.hybrid:
         from langchain_community.retrievers import BM25Retriever
-        from langchain.retrievers import EnsembleRetriever
+        try:  # langchain 1.x 에서 langchain_classic 으로 이동
+            from langchain_classic.retrievers import EnsembleRetriever
+        except ImportError:
+            from langchain.retrievers import EnsembleRetriever
 
         docs_all = list(vs.docstore._dict.values())
         print(f"BM25 인덱싱 {len(docs_all)}건 (tokenizer={args.bm25_tokenizer})", flush=True)
@@ -119,6 +113,7 @@ def main():
     disease_rate = {c: [] for c in CUTS}
     rr = []
     per_intention = defaultdict(list)
+    per_query = []  # 대응표본 검정용
     t0 = time.time()
 
     for i, g in enumerate(golden, 1):
@@ -126,7 +121,7 @@ def main():
         if not docs:
             continue
 
-        # 잘라내지 않고 전체를 재정렬한다. cut별 비교를 같은 조건에서 하기 위함.
+        # 전체 재정렬 - cut별 비교를 같은 조건으로 맞추기 위함
         if reranker:
             scores = reranker.predict([[g["question"], d.page_content] for d in docs])
             docs = [d for d, _ in sorted(zip(docs, scores), key=lambda x: x[1], reverse=True)]
@@ -144,6 +139,15 @@ def main():
             disease_rate[c].append(sum(d.metadata.get("disease_name") == g["disease_name"] for d in top) / len(top))
 
         per_intention[g["intention"]].append(prec[PRIMARY_CUT][-1])
+        per_query.append({
+            "source": g["source"],
+            "intention": g["intention"],
+            "disease_name": g["disease_name"],
+            "precision": {f"@{c}": prec[c][-1] for c in CUTS},
+            "intention_rate": {f"@{c}": intent_rate[c][-1] for c in CUTS},
+            "disease_rate": {f"@{c}": disease_rate[c][-1] for c in CUTS},
+            "rr": rr[-1],
+        })
 
         if i % 20 == 0:
             print(f"  {i}/{len(golden)} ({time.time() - t0:.0f}s)", flush=True)
@@ -171,6 +175,7 @@ def main():
         "mrr": statistics.mean(rr) if rr else 0.0,
         "per_intention_at5": {k: statistics.mean(v) for k, v in per_intention.items()},
         "elapsed_sec": round(time.time() - t0, 1),
+        "per_query": per_query,
     }
 
     print()
