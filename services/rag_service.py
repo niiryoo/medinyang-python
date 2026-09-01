@@ -2,8 +2,6 @@
 
 from pathlib import Path
 
-import torch
-from sentence_transformers import CrossEncoder
 from langchain_community.vectorstores import FAISS
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_core.output_parsers import StrOutputParser
@@ -20,7 +18,10 @@ config.setup_langsmith()
 class BgeReranker:
     """HuggingFace BGE reranker 래퍼"""
 
+    # torch/sentence-transformers는 사용할 때만 import (ADR-007 기본 비활성)
     def __init__(self, model_name="BAAI/bge-reranker-base", top_n=5, device=None):
+        import torch
+        from sentence_transformers import CrossEncoder
         self.model = CrossEncoder(model_name, device=device or ("cuda" if torch.cuda.is_available() else "cpu"))
         self.top_n = top_n
 
@@ -55,7 +56,9 @@ try:
     print("서비스 모듈: FAISS 벡터스토어 로드 성공.")
 
     base_retriever = vectorstore.as_retriever(search_kwargs={"k": config.BASE_K})
-    reranker = BgeReranker(top_n=config.RERANK_TOP_N)
+
+    reranker = BgeReranker(top_n=config.RERANK_TOP_N) if config.USE_RERANKER else None
+    print(f"서비스 모듈: 재순위화 {'활성' if reranker else '비활성 (ADR-007)'}")
 
     intent_clf = None
     intent_path = Path(config.INTENT_MODEL_PATH)
@@ -77,7 +80,10 @@ try:
         return docs or base_retriever.invoke(question)
 
     def retrieve_and_rerank(question):
-        return reranker.rerank(question, retrieve(question))
+        docs = retrieve(question)
+        if reranker:
+            return reranker.rerank(question, docs)
+        return [(doc, None) for doc in docs[:config.RERANK_TOP_N]]
 
     rag_llm = ChatOpenAI(model_name=config.RAG_MODEL_NAME, temperature=0)
     rag_chain = medi_nyang_prompt | rag_llm | StrOutputParser()
@@ -110,9 +116,9 @@ def get_answer(history: list[tuple[str, str]], current_question: str) -> str:
     if not scored:
         return fallback("검색 결과 없음")
 
-    top_score = scored[0][1]
+    top_score = scored[0][1]  # 재순위화 비활성이면 None
     threshold = config.RELEVANCE_THRESHOLD
-    if threshold is not None and top_score < threshold:
+    if threshold is not None and top_score is not None and top_score < threshold:
         return fallback(f"최고 점수 {top_score:.3f} < {threshold}")
 
     answer = rag_chain.invoke({"context": format_docs(scored), "question": current_question})

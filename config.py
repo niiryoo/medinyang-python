@@ -39,6 +39,11 @@ INTENT_MODEL_PATH = os.getenv("INTENT_MODEL_PATH", "models/intent.joblib")
 # 필터가 후보를 약 1/11로 줄이므로 넉넉히 확보
 INTENT_FETCH_K = int(os.getenv("INTENT_FETCH_K", "8000"))
 
+# --- 재순위화 ---
+# 의도 필터 도입 후 이득 구분불가(+0.82%p, CI [-0.62, +2.25]) - ADR-007
+# CPU 질의당 14.1s / GPU 0.44s. 기본 비활성은 CPU 서빙 전제, GPU면 켤 만함
+USE_RERANKER = os.getenv("USE_RERANKER", "0") == "1"
+
 
 
 # 키 없이 os.environ 대입 시 TypeError - import 단계에서 서버 사망
