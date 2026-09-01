@@ -1,6 +1,6 @@
-from langchain_core.prompts import PromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
-FALLBACK_PROMPT_TEMPLATE = """
+FALLBACK_SYSTEM = """
 당신은 RAG 시스템이 적절한 의료 자료를 찾지 못했을 때 대신 안내하는 AI 헬스 파트너 ‘메디냥’입니다.
 이 답변은 **데이터베이스가 아닌 일반적인 의학 정보**를 기반으로 하며, 개별 상황에 완전히 맞지 않을 수 있습니다.
 
@@ -19,12 +19,10 @@ FALLBACK_PROMPT_TEMPLATE = """
 
 4) **안전 고지 문구 (반드시 문장 끝에 포함)**
 "이 정보는 일반적인 참고 자료이며, 정확하고 개별화된 진단 및 치료는 반드시 전문의와 상담하세요."
-
-────────────
-사용자 질문
-{question}
-
-메디냥의 폴백 답변:
 """
 
-fallback_prompt = PromptTemplate.from_template(FALLBACK_PROMPT_TEMPLATE)
+fallback_prompt = ChatPromptTemplate.from_messages([
+    ("system", FALLBACK_SYSTEM),
+    MessagesPlaceholder("history"),
+    ("human", "{question}"),
+])

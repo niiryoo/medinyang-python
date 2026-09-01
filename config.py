@@ -16,26 +16,26 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") # .env에 OPENAI_API_KEY도 있어�
 # --- 모델 설정 ---
 RAG_MODEL_NAME = "gpt-4o"
 FALLBACK_MODEL_NAME = "gpt-4o-mini"
-EMBEDDING_MODEL_NAME = "text-embedding-ada-002" # (FAISS 생성 시 사용한 모델)
 
-# --- DB 경로 ---
-DB_PATH = "db"
+# --- 벡터 DB ---
+# 인덱스와 임베딩 모델은 함께 교체 (불일치 시 검색 무의미)
+DB_PATH = os.getenv("DB_PATH", "db_3small")
+EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "text-embedding-3-small")
 
-# --- 폴백 키워드 ---
-FALLBACK_KEYWORDS = ["모르겠어요", "없습니다", "제공된 문서에서는 해당 정보를 찾을 수 없습니다", "모르는 내용입니다."]
+# --- 폴백 판정 ---
+# "없습니다" 제외 - 정상 답변에도 흔함
+FALLBACK_KEYWORDS = ["모르겠어요", "제공된 문서에서는 해당 정보를 찾을 수 없습니다", "모르는 내용입니다."]
 
-# 1. Base Retriever가 벡터 DB에서 확보할 문서의 개수 (Recall 확보)
-BASE_K = 20 
+# 재순위화 top1 점수가 이 값 미만이면 생성 없이 폴백
+# 정답/오답 점수 분포 중첩으로 비활성 유지 (AUC 0.59, scripts/choose_threshold.py)
+RELEVANCE_THRESHOLD = None
 
-# 2. Reranker가 재순위 지정 후 LLM에게 최종 전달할 문서의 개수 (Precision 유지)
-RERANK_K = 6
-
-RERANK_TOP_N = 5  # reranker가 상위 몇 개 문서만 사용할지
-
+BASE_K = 20        # 벡터 검색 후보 수
+RERANK_TOP_N = 5   # 재순위화 후 LLM에 넘길 문서 수
 
 
-# 키가 없으면 os.environ 대입이 TypeError를 내고 import 단계에서 서버가 죽는다.
-# 트레이싱은 선택 기능이므로 건너뛴다.
+
+# 키 없이 os.environ 대입 시 TypeError - import 단계에서 서버 사망
 def setup_langsmith():
     if not LANGCHAIN_API_KEY:
         print("[config] LANGCHAIN_API_KEY 미설정 - 트레이싱 비활성화")
