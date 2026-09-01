@@ -34,12 +34,14 @@ class BgeReranker:
 
 
 def format_docs(scored):
-    return "\n\n---\n\n".join(doc.page_content for doc, _ in scored)
+    return "\n\n---\n\n".join(
+        f"[{i}] {doc.page_content}" for i, (doc, _) in enumerate(scored, 1)
+    )
 
 
 def to_messages(history):
     messages = []
-    for question, answer in history:
+    for question, answer in history[-config.MAX_HISTORY_TURNS:]:
         messages.append(HumanMessage(content=question))
         messages.append(AIMessage(content=answer))
     return messages
@@ -85,10 +87,10 @@ try:
             return reranker.rerank(question, docs)
         return [(doc, None) for doc in docs[:config.RERANK_TOP_N]]
 
-    rag_llm = ChatOpenAI(model_name=config.RAG_MODEL_NAME, temperature=0)
+    rag_llm = ChatOpenAI(model_name=config.RAG_MODEL_NAME, temperature=config.RAG_TEMPERATURE)
     rag_chain = medi_nyang_prompt | rag_llm | StrOutputParser()
 
-    fallback_llm = ChatOpenAI(model_name=config.FALLBACK_MODEL_NAME, temperature=0.7)
+    fallback_llm = ChatOpenAI(model_name=config.FALLBACK_MODEL_NAME, temperature=config.FALLBACK_TEMPERATURE)
     fallback_chain = fallback_prompt | fallback_llm | StrOutputParser()
 
     print(f"서비스 모듈: 체인 생성 완료 (k={config.BASE_K}, top_n={config.RERANK_TOP_N}, "

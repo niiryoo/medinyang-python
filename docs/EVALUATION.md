@@ -179,7 +179,34 @@ E4:  질환 0.9336 × 의도 0.5982 = 0.5585      실측 P@5 = 0.5564
 
 ---
 
-## 4. 표본 크기의 한계
+## 4. 생성 단계 측정
+
+인용 표기를 도입하면서 생성까지 함께 쟀다. 골든셋에서 의도별 균등 표집한 44건, gpt-4o.
+LLM 채점 없이 정규식과 문자열 비교만 사용했다.
+
+| 지표 | 값 |
+|---|---|
+| 유효 인용률 | 1.0000 |
+| 인용 질환 일치율 | 1.0000 |
+| 인용 의도 일치율 | 0.8952 |
+| 문장 인용률 | 0.5968 |
+| **답변율** | **0.5682** (25/44) |
+
+인용 규칙 유무 A/B에서 거부율은 43.2% 대 47.7%로, 규칙이 거부를 늘리지 않았다.
+
+**검색 지표는 답변 가능성의 상한을 과대평가한다.** Precision@5가 0.7645인 구성에서
+실제 답변율은 0.5682다. 거부 19건 중 검색 실패로 설명되는 건 6건뿐이고, 나머지 13건은
+Precision@5 = 1.0인데도 거부됐다.
+
+```
+"후천성 면역결핍증을 검진받기 위해선 어떤 의료기관을 찾아가야 하나요?"
+   → 문서에 기관 이름 없음. Precision@5 = 1.0
+```
+
+`(질환, 의도)` 라벨 일치는 "관련 문서를 가져왔는가"를 재는 것이지 "그 질문에 답할 수
+있는가"가 아니다. 상세는 [ADR-008](adr/ADR-008-citation.md).
+
+## 5. 표본 크기의 한계
 
 | 비교 | MDE (Precision@5) | 2%p 검출에 필요한 골든셋 |
 |---|---|---|
@@ -195,7 +222,7 @@ E4:  질환 0.9336 × 의도 0.5982 = 0.5585      실측 P@5 = 0.5564
 
 ---
 
-## 5. 재현
+## 6. 재현
 
 ```bash
 python -m scripts.preprocess                        # zip -> data/answers.jsonl
@@ -208,6 +235,7 @@ python -m scripts.dump_pairs --intent-filter        # 재순위화 입력 덤프
 # notebooks/rerank_colab.ipynb 를 Colab GPU 에서 실행
 python -m scripts.compare docs/rerank-base.json docs/g220-E2-dense.json
 python -m scripts.choose_threshold docs/rerank-base.json
+python -m scripts.eval_citation --intent-filter --limit 44 --out docs/cite-on.json
 ```
 
 원자료는 `docs/*.json`에 질의별 결과까지 포함해 두었다.

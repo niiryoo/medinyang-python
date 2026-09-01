@@ -8,10 +8,8 @@ import config
 from prompts.ocr_prompt import ocr_prompt 
 
 
-# 이미지 분석 LLM은 서비스 초기화 시 config.RAG_MODEL_NAME을 사용하여 설정됩니다.
 try:
-    
-    IMAGE_ANALYSIS_LLM = ChatOpenAI(model_name="gpt-4o", temperature=0)
+    IMAGE_ANALYSIS_LLM = ChatOpenAI(model_name=config.IMAGE_MODEL_NAME, temperature=config.IMAGE_TEMPERATURE)
     IMAGE_SERVICE_READY = True
     print("서비스 모듈: 이미지 분석 LLM 설정 완료.")
 except Exception as e:

@@ -16,6 +16,14 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY") # .env에 OPENAI_API_KEY도 있어�
 # --- 모델 설정 ---
 RAG_MODEL_NAME = "gpt-4o"
 FALLBACK_MODEL_NAME = "gpt-4o-mini"
+IMAGE_MODEL_NAME = os.getenv("IMAGE_MODEL_NAME", "gpt-4o")
+
+RAG_TEMPERATURE = 0
+FALLBACK_TEMPERATURE = 0.7
+IMAGE_TEMPERATURE = 0
+
+# 클라이언트가 보내는 이력을 그대로 넘기면 컨텍스트 초과와 비용 증가
+MAX_HISTORY_TURNS = int(os.getenv("MAX_HISTORY_TURNS", "10"))
 
 # --- 벡터 DB ---
 # 인덱스와 임베딩 모델은 함께 교체 (불일치 시 검색 무의미)
@@ -23,8 +31,16 @@ DB_PATH = os.getenv("DB_PATH", "db_3small")
 EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "text-embedding-3-small")
 
 # --- 폴백 판정 ---
+# 프롬프트 지시 문구와 아래 탐지의 단일 출처
+# 두 곳에 따로 적으면 프롬프트 수정 시 탐지가 조용히 사망
+REFUSAL_MARKER = "모르겠어요."
+
 # "없습니다" 제외 - 정상 답변에도 흔함
-FALLBACK_KEYWORDS = ["모르겠어요", "제공된 문서에서는 해당 정보를 찾을 수 없습니다", "모르는 내용입니다."]
+FALLBACK_KEYWORDS = [
+    REFUSAL_MARKER.rstrip("."),
+    "제공된 문서에서는 해당 정보를 찾을 수 없습니다",
+    "모르는 내용입니다.",
+]
 
 # 재순위화 top1 점수가 이 값 미만이면 생성 없이 폴백
 # 정답/오답 점수 분포 중첩으로 비활성 유지 (AUC 0.59, scripts/choose_threshold.py)
