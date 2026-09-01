@@ -136,8 +136,8 @@ ADR-004에서 리랭커 점수로 폴백을 판정하려다 실패했는데(AUC 
 
 ```bash
 python -m scripts.train_intent
-python -m scripts.evaluate --index db_3small --intent-filter --out docs/g220-E6.json
-python -m scripts.compare docs/g220-E6.json docs/rerank-base.json
+python -m scripts.evaluate --index db_3small --intent-filter --out docs/results/g220-E6.json
+python -m scripts.compare docs/results/g220-E6.json docs/results/rerank-base.json
 ```
 
 `models/`는 gitignore 대상이다. 위 첫 명령으로 재생성한다.

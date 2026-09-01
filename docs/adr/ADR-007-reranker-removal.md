@@ -105,7 +105,7 @@ Precision@5 +28.45%p이므로, 재현이 아니라 개선이 목적이라면 감
 ## 재현
 
 ```bash
-python -m scripts.evaluate --index db_3small --intent-filter --out docs/g220-E8.json
-python -m scripts.evaluate --index db_3small --intent-filter --rerank --out docs/g220-E9.json
-python -m scripts.compare docs/g220-E9.json docs/g220-E8.json
+python -m scripts.evaluate --index db_3small --intent-filter --out docs/results/g220-E8.json
+python -m scripts.evaluate --index db_3small --intent-filter --rerank --out docs/results/g220-E9.json
+python -m scripts.compare docs/results/g220-E9.json docs/results/g220-E8.json
 ```

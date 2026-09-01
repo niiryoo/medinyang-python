@@ -229,13 +229,13 @@ python -m scripts.preprocess                        # zip -> data/answers.jsonl
 python -m scripts.make_db                           # JSONL -> FAISS
 python -m scripts.build_goldenset                   # 골든셋 220건
 python -m scripts.train_intent                      # 의도 분류기
-python -m scripts.evaluate --index db_3small --out docs/g220-E2-dense.json
-python -m scripts.evaluate --index db_3small --intent-filter --out docs/g220-E6.json
+python -m scripts.evaluate --index db_3small --out docs/results/g220-E2-dense.json
+python -m scripts.evaluate --index db_3small --intent-filter --out docs/results/g220-E6.json
 python -m scripts.dump_pairs --intent-filter        # 재순위화 입력 덤프
 # notebooks/rerank_colab.ipynb 를 Colab GPU 에서 실행
-python -m scripts.compare docs/rerank-base.json docs/g220-E2-dense.json
-python -m scripts.choose_threshold docs/rerank-base.json
-python -m scripts.eval_citation --intent-filter --limit 44 --out docs/cite-on.json
+python -m scripts.compare docs/results/rerank-base.json docs/results/g220-E2-dense.json
+python -m scripts.choose_threshold docs/results/rerank-base.json
+python -m scripts.eval_citation --intent-filter --limit 44 --out docs/results/cite-on.json
 ```
 
-원자료는 `docs/*.json`에 질의별 결과까지 포함해 두었다.
+원자료는 `docs/results/*.json`에 질의별 결과까지 포함해 두었다.

@@ -86,7 +86,7 @@ Precision은 질환과 의도를 동시에 맞혀야 오르는 지표라, 두 �
 
 - 측정 리포트: [docs/EVALUATION.md](docs/EVALUATION.md)
 - ADR 7건: [docs/adr/](docs/adr/)
-- 원자료: `docs/*.json` (질의별 결과 포함, AI Hub 문서 원문 미포함)
+- 원자료: `docs/results/*.json` (질의별 결과 포함, AI Hub 문서 원문 미포함)
 
 > 게재 시점 인덱스는 수작업 선별이라 재현 불가. 본 측정은 동일 데이터셋에서 재현 가능한
 > 규칙으로 구성한 인덱스 기준이며, 절대값이 아닌 상대 비교로만 해석한다.
@@ -152,10 +152,10 @@ http://127.0.0.1:8000/docs 에서 API 문서를 확인한다.
 ```bash
 poetry run python -m scripts.build_goldenset                                # 골든셋 220건
 poetry run python -m scripts.train_intent                                   # 의도 분류기
-poetry run python -m scripts.evaluate --index db_3small --intent-filter --out docs/eval.json
-poetry run python -m scripts.compare docs/eval.json docs/g220-E1-ada.json   # 대응표본 비교
+poetry run python -m scripts.evaluate --index db_3small --intent-filter --out docs/results/eval.json
+poetry run python -m scripts.compare docs/results/eval.json docs/results/g220-E1-ada.json   # 대응표본 비교
 poetry run python -m scripts.dump_pairs --intent-filter                     # 재순위화 입력 덤프
-poetry run python -m scripts.choose_threshold docs/rerank-base.json         # 임계값 산출
+poetry run python -m scripts.choose_threshold docs/results/rerank-base.json         # 임계값 산출
 ```
 
 재순위화 측정은 CPU에서 질의당 25초가 걸린다. GPU가 없으면

@@ -102,5 +102,5 @@ top1 점수 오답  n=67   중앙값 0.993  범위 [0.001, 1.000]
 
 ## 검증
 
-`scripts/choose_threshold.py`. 원자료는 `docs/rerank-base.json`, `docs/rerank-ko.json`에
+`scripts/choose_threshold.py`. 원자료는 `docs/results/rerank-base.json`, `docs/results/rerank-ko.json`에
 질의별 20개 점수와 hit 여부까지 포함해 두었다.

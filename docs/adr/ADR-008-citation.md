@@ -130,6 +130,6 @@ LLM judge나 사람이 필요하고, 이 프로젝트 범위 밖으로 뒀다.
 ## 재현
 
 ```bash
-python -m scripts.eval_citation --intent-filter --limit 44 --out docs/cite-on.json
-python -m scripts.eval_citation --intent-filter --no-citation --limit 44 --out docs/cite-off.json
+python -m scripts.eval_citation --intent-filter --limit 44 --out docs/results/cite-on.json
+python -m scripts.eval_citation --intent-filter --no-citation --limit 44 --out docs/results/cite-off.json
 ```
